@@ -1,0 +1,11 @@
+version: '2.1'
+services:
+    haproxy-redis-sentinel:
+        container_name: haproxy-redis-sentinel
+        image: 172.16.101.70/ailab/haproxy:redis-ha-v2
+        network_mode: host
+        ports:
+            - "80:80"
+        restart: always
+        env_file:
+          - ./redis-list.env
